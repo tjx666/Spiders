@@ -1,0 +1,21 @@
+{
+  "name": "qupingce",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YuTengjing",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "chalk": "^2.4.2",
+    "fs-extra": "^7.0.1",
+    "superagent": "^4.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.2"
+  }
+}
