@@ -2,8 +2,8 @@ const log4js = require('log4js');
 const path = require('path');
 const fs = require('fs-extra');
 
-const infoFilePath = path.resolve(__dirname, '../log/info.log');
-const errorFilePath = path.resolve(__dirname, '../log/error.log');
+const infoFilePath = path.resolve(__dirname, '../out/log/info.log');
+const errorFilePath = path.resolve(__dirname, '../out/log/error.log');
 log4js.configure({
     appenders: {
         dateFile: {
@@ -41,9 +41,9 @@ log4js.configure({
 
 
 const clear = async () => {
-    const files = await fs.readdir(path.resolve(__dirname, '../log'));
+    const files = await fs.readdir(path.resolve(__dirname, '../out/log'));
     for (const fileName of files) {
-        fs.remove(path.resolve(__dirname, `../log/${fileName}`));
+        fs.remove(path.resolve(__dirname, `../out/log/${fileName}`));
     }
 }
 

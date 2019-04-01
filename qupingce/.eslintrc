@@ -30,6 +30,7 @@
             "always"
         ],
         "no-unused-vars":"warn",
-        "no-console": "off"
+        "no-console": "off",
+        "semi": "off"
     }
 }

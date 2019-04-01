@@ -14,6 +14,8 @@
     "fs-extra": "^7.0.1",
     "lodash": "^4.17.11",
     "log4js": "^4.1.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.2.8",
     "superagent": "^4.1.0"
   },
   "devDependencies": {
