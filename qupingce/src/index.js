@@ -1,6 +1,6 @@
 const requests = require('superagent');
 const constants = require('../config/constants');
-const {logRequest} = require('./utils/request');
+const { logRequest } = require('./utils/request');
 
 
 const main = async () => {
