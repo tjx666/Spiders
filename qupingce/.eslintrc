@@ -25,12 +25,8 @@
             "error",
             "single"
         ],
-        "semi": [
-            "warn",
-            "always"
-        ],
-        "no-unused-vars":"warn",
-        "no-console": "off",
-        "semi": "off"
+        "semi": "off",
+        "no-unused-vars": "warn",
+        "no-console": "off"
     }
 }

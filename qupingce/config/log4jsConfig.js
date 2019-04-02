@@ -32,7 +32,7 @@ log4js.configure({
             appenders: ['out'],
             level: 'trace'
         },
-        file: {
+        qupingce: {
             appenders: ['out', 'dateFile', 'justErrorsToFile'],
             level: 'trace'
         }

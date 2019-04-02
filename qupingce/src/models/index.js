@@ -1,12 +1,16 @@
 const path = require('path');
 const fs = require('fs-extra');
-const { log4js } = require('../../config/log4jsConfig');
-const log = log4js.getLogger('file');
+const {
+    log4js
+} = require('../../config/log4jsConfig');
+const log = log4js.getLogger('qupingce');
 
 const createModels = () => {
-    models = [];
+    const models = [];
     const fileNames = fs.readdirSync(path.resolve(__dirname, '.'));
-    console.log({fileNames});
+    console.log({
+        fileNames
+    });
     fileNames
         .filter(fileName => fileName !== 'index.js')
         .map(fileName => fileName.slice(0, -3))

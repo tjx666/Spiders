@@ -1,14 +1,15 @@
-const util = require('util');
 const chalk = require('chalk');
+const {log4js} = require('../../config/log4jsConfig');
+const logger = log4js.getLogger('qupingce');
 
 const logRequest = (response, isDetailed = false) => {
     const URL = chalk.underline.yellow(response.request.url);
     const basicInfo = `${response.request.method} Status: ${response.status} Content-Type: ${response.type} URL=${URL}`;
     if (!isDetailed) {
-        util.log(basicInfo);
+        logger.info(basicInfo);
     } else {
         const detailInfo = `${basicInfo}\ntext: ${response.text}`;
-        util.log(detailInfo);
+        logger.info(detailInfo);
     }
 };
 

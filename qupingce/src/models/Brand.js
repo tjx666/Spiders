@@ -20,6 +20,14 @@ Brand.init({
     type: {
         type: Sequelize.TINYINT,
         allowNull: false,
+    },
+    img_name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    brand_type_id: {
+        type: Sequelize.STRING,
+        allowNull: false,
     }
 }, {
     sequelize
