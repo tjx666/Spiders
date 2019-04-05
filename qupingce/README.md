@@ -1,6 +1,6 @@
 # 使用 nodejs 爬取趣评测的一些设备数据
 
-## 用到的技术
+## 用到的库
 
 1. superagent
 2. fs-extra

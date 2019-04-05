@@ -8,6 +8,7 @@ const logger = require('../config/log4jsConfig').log4js.getLogger('file');
 const crawlBrands = async () => {
     const Brand = models.Brand;
     const baseUrl = constants.getBandsByTypeUrl;
+    // 服务器返回的 img url  "img": "/GetFile/getUploadImg?fileName=9b1cc22c74bc44c8af78b46e0ca4c352.png"
     const imgReg = /\/GetFile\/getUploadImg\?fileName=(.+)\..+/;
 
     // 并发
@@ -30,7 +31,7 @@ const crawlBrands = async () => {
                 };
     
                 try {
-                    await Brand.create(newBrand)
+                    // await Brand.create(newBrand)
                 } catch (err) {
                     logger.error(`插入品牌数据: ${JSON.stringify(newBrand, null, 2)} 失败!`)
                     logger.error(err);

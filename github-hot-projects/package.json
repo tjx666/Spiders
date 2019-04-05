@@ -1,0 +1,23 @@
+{
+  "name": "github-hot-projects",
+  "version": "1.0.0",
+  "description": "nodejs 爬虫系列二: 爬取 github 热门项目",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YuTengjing",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "cheerio": "^1.0.0-rc.2",
+    "fs-extra": "^7.0.1",
+    "log4js": "^4.1.0",
+    "readline-sync": "^1.4.9",
+    "superagent": "^5.0.2"
+  }
+}
