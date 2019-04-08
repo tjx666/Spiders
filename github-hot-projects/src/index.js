@@ -1,26 +1,28 @@
 const readlineSync = require('readline-sync');
 const { crawlProjectsByPage, crawlProjectsByPagesCount } = require('./crawlHotProjects');
 const models = require('./models');
+const logger = require('../config/log4jsConfig').log4js.getLogger('githubHotProjects');
 
 const main = async () => {
     let isContinue = true;
     do {
-        const starCount = readlineSync.questionInt(`输入你想要抓取的 github 上项目的 star 数量下限, 单位 k:`, { encoding: 'utf-8'});
-        const crawlMode = [
+        const starCount = readlineSync.questionInt(`输入你想要抓取的 github 上项目的 star 数量下限, 单位(k): `, { encoding: 'utf-8'});
+        const crawlModes = [
             '抓取某一页',
             '抓取一定数量页数',
             '抓取所有页'
         ];
-        const index = readlineSync.keyInSelect(crawlMode, '请选择一种模式');
+        const index = readlineSync.keyInSelect(crawlModes, '请选择一种抓取模式');
+
         let repositories = [];
         switch (index) {
             case 0: {
-                const page = readlineSync.questionInt('请输入你要抓取的具体页数:');
+                const page = readlineSync.questionInt('请输入你要抓取的具体页数: ');
                 repositories = await crawlProjectsByPage(starCount, page);
                 break;
             }
             case 1: {
-                const pagesCount = readlineSync.questionInt('请输入你要抓取的页面数量:');
+                const pagesCount = readlineSync.questionInt('请输入你要抓取的页面数量: ');
                 repositories = await crawlProjectsByPagesCount(starCount, pagesCount);
                 break;
             }
@@ -34,10 +36,9 @@ const main = async () => {
         
         const isSave = readlineSync.keyInYN('请问是否要保存到本地(json 格式) ?');
         isSave && models.Repository.saveToLocal(repositories);
-
-        isContinue = readlineSync.keyInYN('继续还是退出?');
+        isContinue = readlineSync.keyInYN('继续还是退出 ?');
     } while (isContinue);
-    console.log('程序正常退出...');
+    logger.info('程序正常退出...')
 }
 
 main();

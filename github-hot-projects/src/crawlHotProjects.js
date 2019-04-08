@@ -6,20 +6,23 @@ const logger = require('../config/log4jsConfig').log4js.getLogger('githubHotProj
 const requestUtil = require('./utils/request');
 const models = require('./models');
 
+/**
+ * 获取 star 数不低于 starCount k 的项目第 page 页的源代码
+ * @param {number} starCount star 数量下限
+ * @param {number} page 页数
+ */
 const crawlSourceCode = async (starCount, page = 1) => {
     // 下限为 starCount k star 数
     starCount = starCount * 1024;
     // 替换 url 中的参数
     const url = constants.searchUrl.replace('${starCount}', starCount).replace('${page}', page);
     // response.text 即为返回的源代码
-    const {
-        text: sourceCode
-    } = await requestUtil.logRequest(requests.get(encodeURI(url)));
+    const { text: sourceCode } = await requestUtil.logRequest(requests.get(encodeURI(url)));
     return sourceCode;
 }
 
 /**
- * 返回搜索结果页面总共有多少页
+ * 返回 star 数量不低于 starCount k 的项目总共有多少页
  * @param {number} starCount star 数量下限
  */
 const getPagesCount = async (starCount) => {
@@ -107,9 +110,7 @@ const crawlProjectsByPagesCount = async (starCount, pagesCount) => {
 
     const allRepositories = [];
 
-    const tasks = Array.from({
-        length: pagesCount
-    }, (ele, index) => {
+    const tasks = Array.from({ length: pagesCount }, (ele, index) => {
         // 因为页数是从 1 开始的, 所以这里要 i + 1
         return crawlProjectsByPage(starCount, index + 1);
     });
