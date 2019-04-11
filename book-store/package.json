@@ -1,0 +1,16 @@
+{
+  "name": "crawl-books-links",
+  "version": "1.0.0",
+  "description": "crawl books links from a website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ly",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "mz": "^2.7.0",
+    "superagent": "^3.8.3"
+  }
+}
